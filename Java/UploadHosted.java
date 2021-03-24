@@ -14,33 +14,26 @@ public class UploadHosted {
         String DATASET_NAME = "your-dataset"; // Set Dataset Name (Found in Dataset URL)
 
         // Upload URL
-        String uploadURL = "https://api.roboflow.com/dataset/" +
-                DATASET_NAME +
-                "/upload" +
-                "?api_key=" + API_KEY +
-                "&name=YOUR_IMAGE.jpg" +
-                "&split=train" +
-                "&image=" + URLEncoder.encode(imageURL, StandardCharsets.UTF_8);
+        String uploadURL = "https://api.roboflow.com/dataset/" + DATASET_NAME + "/upload" + "?api_key=" + API_KEY
+                + "&name=YOUR_IMAGE.jpg" + "&split=train" + "&image="
+                + URLEncoder.encode(imageURL, StandardCharsets.UTF_8);
 
         // Http Request
         HttpURLConnection connection = null;
         try {
-            //Configure connection to URL
+            // Configure connection to URL
             URL url = new URL(uploadURL);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type",
-                    "application/x-www-form-urlencoded");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 
-            connection.setRequestProperty("Content-Length",
-                    Integer.toString(uploadURL.getBytes().length));
+            connection.setRequestProperty("Content-Length", Integer.toString(uploadURL.getBytes().length));
             connection.setRequestProperty("Content-Language", "en-US");
             connection.setUseCaches(false);
             connection.setDoOutput(true);
 
-            //Send request
-            DataOutputStream wr = new DataOutputStream(
-                    connection.getOutputStream());
+            // Send request
+            DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             wr.writeBytes(uploadURL);
             wr.close();
 
