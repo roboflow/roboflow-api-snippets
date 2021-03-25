@@ -4,7 +4,7 @@ import io
 from PIL import Image
 
 # Load Image with PIL
-image = Image.open("random.jpg").convert("RGB")
+image = Image.open("YOUR_IMAGE.jpg").convert("RGB")
 
 # Convert to JPEG Buffer
 buffered = io.BytesIO()
@@ -23,7 +23,7 @@ dataset_name = "your-dataset"
 upload_url = "".join([
     "https://api.roboflow.com/dataset/"+ dataset_name + "/upload",
     "?api_key=" + api_key,
-    "&name=random.jpg",
+    "&name=YOUR_IMAGE.jpg",
     "&split=train"
 ])
 
