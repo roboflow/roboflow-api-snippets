@@ -1,0 +1,5 @@
+asyncio
+httpx
+numpy
+opencv-python
+requests

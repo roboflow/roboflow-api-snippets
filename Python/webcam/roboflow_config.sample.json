@@ -1,0 +1,10 @@
+{
+    "__comment1": "Obtain these values via Roboflow",
+    "ROBOFLOW_API_KEY": "xxxxxxxxxx",
+    "ROBOFLOW_MODEL": "xx-name--#",
+    "ROBOFLOW_SIZE": 416,
+
+    "__comment2": "The following are only needed for infer-async.py",
+    "FRAMERATE": 24,
+    "BUFFER": 0.5
+}
