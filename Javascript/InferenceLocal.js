@@ -1,20 +1,20 @@
 const axios = require("axios");
 const fs = require("fs");
 
+// Model Endpoint
+var model_endpoint = "xx-your-model--1";
+// Enter your API Key Here
+var api_key = "";
+
 const image = fs.readFileSync("YOUR_IMAGE.jpg", {
   encoding: "base64",
 });
 
-var dataset_name = "your-dataset"; // Set Dataset Name (Found in Dataset URL)
-var api_key = ""; // Enter your API key here
-
 axios({
   method: "POST",
-  url: "https://api.roboflow.com/dataset/" + dataset_name + "/upload",
+  url: "https://infer.roboflow.com/" + model_endpoint,
   params: {
-    api_key: api_key,
-    name: "YOUR_IMAGE.jpg",
-    split: "train",
+    access_token: api_key,
   },
   data: image,
   headers: {

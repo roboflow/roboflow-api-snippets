@@ -4,9 +4,9 @@ using System.Net;
 using System.Text;
 using System.Web;
 
-namespace UploadLocal
+namespace UploadHosted
 {
-    class Program
+    class UploadHosted
     {
         static void Main(string[] args)
         {

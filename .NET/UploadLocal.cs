@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UploadLocal
 {
-    class Program
+    class UploadLocal
     {
 
         static void Main(string[] args)
