@@ -3,25 +3,22 @@ using System.IO;
 using System.Net;
 using System.Web;
 
-namespace UploadHosted
+namespace InferenceHosted
 {
-    class UploadHosted
+    class InferenceHosted
     {
         static void Main(string[] args)
         {
             string API_KEY = ""; // Your API Key
-            string DATASET_NAME = "your-dataset"; // Set Dataset Name (Found in Dataset URL)
             string imageURL = "https://i.imgur.com/PEEvqPN.png";
             imageURL = HttpUtility.UrlEncode(imageURL);
+            string MODEL_ENDPOINT = "xx-your-model--1"; // Set model endpoint
 
             // Construct the URL
             string uploadURL =
-                    "https://api.roboflow.com/dataset/" +
-                            DATASET_NAME + "/upload" +
-                            "?api_key=" + API_KEY +
-                            "&name=YOUR_IMAGE.jpg" +
-                            "&split=train" +
-                            "&image=" + imageURL;
+                    "https://infer.roboflow.com/" + MODEL_ENDPOINT
+                    + "?access_token=" + API_KEY
+                    + "&image=" + HttpUtility.UrlEncode(imageURL);
 
             // Service Point Config
             ServicePointManager.Expect100Continue = true;

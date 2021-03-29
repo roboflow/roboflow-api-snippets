@@ -1,37 +1,41 @@
 using System;
 using System.IO;
 using System.Net;
-using System.Web;
+using System.Text;
 
-namespace UploadHosted
+namespace InferenceLocal
 {
-    class UploadHosted
+    class InferenceLocal
     {
+
         static void Main(string[] args)
         {
+            byte[] imageArray = System.IO.File.ReadAllBytes(@"YOUR_IMAGE.jpg");
+            string encoded = Convert.ToBase64String(imageArray);
+            byte[] data = Encoding.ASCII.GetBytes(encoded);
             string API_KEY = ""; // Your API Key
-            string DATASET_NAME = "your-dataset"; // Set Dataset Name (Found in Dataset URL)
-            string imageURL = "https://i.imgur.com/PEEvqPN.png";
-            imageURL = HttpUtility.UrlEncode(imageURL);
+            string MODEL_ENDPOINT = "xx-your-model--1"; // Set model endpoint
 
             // Construct the URL
             string uploadURL =
-                    "https://api.roboflow.com/dataset/" +
-                            DATASET_NAME + "/upload" +
-                            "?api_key=" + API_KEY +
-                            "&name=YOUR_IMAGE.jpg" +
-                            "&split=train" +
-                            "&image=" + imageURL;
+                    "https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY
+                + "&name=YOUR_IMAGE.jpg";
 
-            // Service Point Config
+            // Service Request Config
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            // Configure Http Request
+            // Configure Request
             WebRequest request = WebRequest.Create(uploadURL);
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = 0;
+            request.ContentLength = data.Length;
+
+            // Write Data
+            using (Stream stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
 
             // Get Response
             string responseContent = null;

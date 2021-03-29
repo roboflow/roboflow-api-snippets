@@ -2,7 +2,7 @@
 
 Repository for versioning snippets that show how to use Roboflow APIs in different languages.
 
-## API Progress
+## API Snippets Progress
 
 ### Completed
 
@@ -30,7 +30,11 @@ Repository for versioning snippets that show how to use Roboflow APIs in differe
 
 ###### Inference APIs
 
-- Java (Local and Hosted) -- Stills needs to be tested
+- Java (Local and Hosted) -- Still needs to be tested
+- .NET (Local and Hosted) -- Still needs to be tested
+- Go (Local and Hosted) -- Still needs to be tested
+- PHP (Local and Hosted)-- Still needs to be tested
+- Ruby (Local and Hosted)-- Still needs to be tested
 
 ### Not Started
 
@@ -42,11 +46,6 @@ Repository for versioning snippets that show how to use Roboflow APIs in differe
 
 ###### Inference APIs
 
-- Kotlin (Local and Hosted)
-- Go (Local and Hosted)
-- .NET (Local and Hosted)
-- PHP (Local and Hosted)
-- Ruby (Local and Hosted)
 - Elixir (Local and Hosted)
 - Swift (Local and Hosted)
 - Objective C (Local and Hosted)
