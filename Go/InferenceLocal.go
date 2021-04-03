@@ -23,12 +23,17 @@ func main() {
 
     // Encode as base64.
     data := base64.StdEncoding.EncodeToString(content)
-	uploadURL := "https://infer.roboflow.com/" + model_endpoint
-	+ "?access_token=" + api_key
-	+ "&name=YOUR_IMAGE.jpg"
+	uploadURL := "https://infer.roboflow.com/" + model_endpoint + "?access_token=" + api_key + "&name=YOUR_IMAGE.jpg"
 
-	res, _ := http.Post(uploadURL, "application/x-www-form-urlencoded", strings.NewReader(data))
-	fmt.Println(res)
+	req, _ := http.NewRequest("POST", uploadURL, strings.NewReader(data))
+    req.Header.Set("Accept", "application/json")
+
+    client := &http.Client{}
+    resp, _ := client.Do(req)
+    defer resp.Body.Close()
+
+   	bytes, _ := ioutil.ReadAll(resp.Body)
+    fmt.Println(string(bytes))
 
 }
 

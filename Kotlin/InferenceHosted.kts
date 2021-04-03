@@ -4,7 +4,6 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
-import java.nio.charset.StandardCharsets
 
 fun main() {
     val imageURL = "https://i.imgur.com/PEEvqPN.png" // Replace Image URL
@@ -12,8 +11,7 @@ fun main() {
     val MODEL_ENDPOINT = "xx-your-model--1" // Set model endpoint
 
     // Upload URL
-    val uploadURL = "https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY + "&image="
-                + URLEncoder.encode(imageURL, "utf-8");
+    val uploadURL = "https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY + "&image=" + URLEncoder.encode(imageURL, "utf-8");
 
     // Http Request
     var connection: HttpURLConnection? = null
@@ -34,7 +32,7 @@ fun main() {
         wr.close()
 
         // Get Response
-        val stream = connection.inputStream
+        val stream = URL(uploadURL).openStream()
         val reader = BufferedReader(InputStreamReader(stream))
         var line: String?
         while (reader.readLine().also { line = it } != null) {

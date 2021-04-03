@@ -29,7 +29,7 @@ func main() {
     "&split=train"
 
 	res, _ := http.Post(uploadURL, "application/x-www-form-urlencoded", strings.NewReader(data))
-	fmt.Println(res)
+    body, _ := ioutil.ReadAll(res.Body)
+	fmt.Println(string(body))
 
 }
-

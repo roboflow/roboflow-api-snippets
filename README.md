@@ -21,6 +21,12 @@ Repository for versioning snippets that show how to use Roboflow APIs in differe
 
 - Python (Local and Hosted)
 - Javascript (Local and Hosted)
+- Java (Local and Hosted)
+- Kotlin (Local and Hosted)
+- Ruby (Local and Hosted)
+- Go (Local and Hosted)
+- PHP (Local and Hosted)
+- .NET (Local and Hosted)
 
 ### In-Progress
 
@@ -30,11 +36,7 @@ Repository for versioning snippets that show how to use Roboflow APIs in differe
 
 ###### Inference APIs
 
-- Java (Local and Hosted) -- Still needs to be tested
-- .NET (Local and Hosted) -- Still needs to be tested
-- Go (Local and Hosted) -- Still needs to be tested
-- PHP (Local and Hosted)-- Still needs to be tested
-- Ruby (Local and Hosted)-- Still needs to be tested
+- None
 
 ### Not Started
 

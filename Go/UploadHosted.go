@@ -4,11 +4,13 @@ import (
     "fmt"
 	"net/http"
 	"net/url"
+	"io/ioutil"
+
 )
 
 func main() {
 	api_key := ""  // Your API Key
-	dataset_name := "your-dataset" // Set Dataset Name (Found in Dataset URL)
+	dataset_name := "Your-Dataset" // Set Dataset Name (Found in Dataset URL)
 	img_url := "https://i.imgur.com/PEEvqPN.png"
 
 
@@ -18,7 +20,9 @@ func main() {
     "&split=train" + "&image=" + url.QueryEscape(img_url)
 
 	res, _ := http.Post(uploadURL, "application/x-www-form-urlencoded", nil)
-	fmt.Println(res)
+	body, _ := ioutil.ReadAll(res.Body)
+    fmt.Println(string(body))
+
 
 }
 

@@ -10,8 +10,7 @@ namespace InferenceHosted
         static void Main(string[] args)
         {
             string API_KEY = ""; // Your API Key
-            string imageURL = "https://i.imgur.com/PEEvqPN.png";
-            imageURL = HttpUtility.UrlEncode(imageURL);
+            string imageURL = "https://i.ibb.co/jzr27x0/YOUR-IMAGE.jpg";
             string MODEL_ENDPOINT = "xx-your-model--1"; // Set model endpoint
 
             // Construct the URL

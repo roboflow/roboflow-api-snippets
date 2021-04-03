@@ -19,8 +19,7 @@ fun main() {
     val MODEL_ENDPOINT = "xx-your-model--1" // Set model endpoint (Found in Dataset URL)
 
     // Construct the URL
-    val uploadURL ="https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY
-                + "&name=YOUR_IMAGE.jpg";
+    val uploadURL ="https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY + "&name=YOUR_IMAGE.jpg";
 
     // Http Request
     var connection: HttpURLConnection? = null

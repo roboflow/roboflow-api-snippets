@@ -7,9 +7,7 @@ img_url = "https://i.imgur.com/PEEvqPN.png" # Construct the URL
 
 img_url = CGI::escape(img_url)
 
-params = model_endpoint
-+ "?access_token=" + api_key
-+ "&image=" + img_url)
+params =  "?access_token=" + api_key + "&image=" + img_url
 
 response = HTTParty.post(
     "https://infer.roboflow.com/" + model_endpoint + params,

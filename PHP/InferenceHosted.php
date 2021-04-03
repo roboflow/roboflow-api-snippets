@@ -7,7 +7,7 @@ $img_url = "https://i.imgur.com/PEEvqPN.png";
 // URL for Http Request
 $url =  "https://infer.roboflow.com/" . $model_endpoint
 . "?access_token=" . $api_key
-. "&image=" . urlencode(img_url)
+. "&image=" . urlencode($img_url);
 
 // Setup + Send Http request
 $options = array(

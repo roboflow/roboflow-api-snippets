@@ -2,7 +2,7 @@ require 'base64'
 require 'httparty'
 
 encoded = Base64.encode64(File.open("YOUR_IMAGE.jpg", "rb").read)
-model_enpoint = "xx-your-model--1" # Set model endpoint
+model_endpoint = "xx-your-model--1" # Set model endpoint
 api_key = "" # Your API KEY Here
 
 params = "?access_token=" + api_key
