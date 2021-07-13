@@ -17,11 +17,11 @@ import requests
 import time
 
 # Construct the Roboflow Infer URL
-# (if running locally replace https://infer.roboflow.com/ with eg http://127.0.0.1:9001/)
+# (if running locally replace https://detect.roboflow.com/ with eg http://127.0.0.1:9001/)
 upload_url = "".join([
-    "https://infer.roboflow.com/",
+    "https://detect.roboflow.com/",
     ROBOFLOW_MODEL,
-    "?access_token=",
+    "?api_key=",
     ROBOFLOW_API_KEY,
     "&format=image",
     "&stroke=5"

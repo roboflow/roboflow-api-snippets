@@ -2,7 +2,7 @@ const axios = require("axios");
 const fs = require("fs");
 
 // Model Endpoint
-var model_endpoint = "xx-your-model--1";
+var model_endpoint = "dataset/v";
 // Enter your API Key Here
 var api_key = "";
 
@@ -12,9 +12,9 @@ const image = fs.readFileSync("YOUR_IMAGE.jpg", {
 
 axios({
   method: "POST",
-  url: "https://infer.roboflow.com/" + model_endpoint,
+  url: "https://detect.roboflow.com/" + model_endpoint,
   params: {
-    access_token: api_key,
+    api_key: api_key,
   },
   data: image,
   headers: {

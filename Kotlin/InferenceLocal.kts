@@ -16,10 +16,10 @@ fun main() {
     fileInputStreamReader.read(bytes)
     encodedFile = String(Base64.getEncoder().encode(bytes), StandardCharsets.US_ASCII)
     val API_KEY = "" // Your API Key
-    val MODEL_ENDPOINT = "xx-your-model--1" // Set model endpoint (Found in Dataset URL)
+    val MODEL_ENDPOINT = "dataset/v" // Set model endpoint (Found in Dataset URL)
 
     // Construct the URL
-    val uploadURL ="https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY + "&name=YOUR_IMAGE.jpg";
+    val uploadURL ="https://detect.roboflow.com/" + MODEL_ENDPOINT + "?api_key=" + API_KEY + "&name=YOUR_IMAGE.jpg";
 
     // Http Request
     var connection: HttpURLConnection? = null

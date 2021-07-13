@@ -1,15 +1,15 @@
 const axios = require("axios");
 
 // Model Endpoint
-var model_endpoint = "xx-your-model--1";
+var model_endpoint = "dataset/v";
 // Enter your API Key Here
 var api_key = "";
 
 axios({
   method: "POST",
-  url: "https://infer.roboflow.com/" + model_endpoint,
+  url: "https://detect.roboflow.com/" + model_endpoint,
   params: {
-    access_token: api_key,
+    api_key: api_key,
     image: "https://i.imgur.com/PEEvqPN.png",
   },
 })

@@ -12,7 +12,7 @@ import (
 
 func main() {
 	api_key := ""  // Your API Key
-	model_endpoint := "xx-your-model--1" // Set model endpoint
+	model_endpoint := "dataset/v" // Set model endpoint
 
     // Open file on disk.
     f, _ := os.Open("YOUR_IMAGE.jpg")
@@ -23,7 +23,7 @@ func main() {
 
     // Encode as base64.
     data := base64.StdEncoding.EncodeToString(content)
-	uploadURL := "https://infer.roboflow.com/" + model_endpoint + "?access_token=" + api_key + "&name=YOUR_IMAGE.jpg"
+	uploadURL := "https://detect.roboflow.com/" + model_endpoint + "?api_key=" + api_key + "&name=YOUR_IMAGE.jpg"
 
 	req, _ := http.NewRequest("POST", uploadURL, strings.NewReader(data))
     req.Header.Set("Accept", "application/json")

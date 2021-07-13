@@ -11,12 +11,12 @@ namespace InferenceHosted
         {
             string API_KEY = ""; // Your API Key
             string imageURL = "https://i.ibb.co/jzr27x0/YOUR-IMAGE.jpg";
-            string MODEL_ENDPOINT = "xx-your-model--1"; // Set model endpoint
+            string MODEL_ENDPOINT = "dataset/v"; // Set model endpoint
 
             // Construct the URL
             string uploadURL =
-                    "https://infer.roboflow.com/" + MODEL_ENDPOINT
-                    + "?access_token=" + API_KEY
+                    "https://detect.roboflow.com/" + MODEL_ENDPOINT
+                    + "?api_key=" + API_KEY
                     + "&image=" + HttpUtility.UrlEncode(imageURL);
 
             // Service Point Config

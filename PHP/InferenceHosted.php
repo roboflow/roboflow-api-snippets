@@ -1,12 +1,12 @@
 <?php
 
 $api_key = ""; // Set API Key
-$model_endpoint = "xx-your-model--1"; // Set model endpoint (Found in Dataset URL)
+$model_endpoint = "dataset/v"; // Set model endpoint (Found in Dataset URL)
 $img_url = "https://i.imgur.com/PEEvqPN.png";
 
 // URL for Http Request
-$url =  "https://infer.roboflow.com/" . $model_endpoint
-. "?access_token=" . $api_key
+$url =  "https://detect.roboflow.com/" . $model_endpoint
+. "?api_key=" . $api_key
 . "&image=" . urlencode($img_url);
 
 // Setup + Send Http request

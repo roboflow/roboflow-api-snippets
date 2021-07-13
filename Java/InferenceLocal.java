@@ -18,10 +18,10 @@ public class InferenceLocal {
         encodedFile = new String(Base64.getEncoder().encode(bytes), StandardCharsets.US_ASCII);
 
         String API_KEY = ""; // Your API Key
-        String MODEL_ENDPOINT = "xx-your-model--1"; // model endpoint
+        String MODEL_ENDPOINT = "dataset/v"; // model endpoint
 
         // Construct the URL
-        String uploadURL = "https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY
+        String uploadURL = "https://detect.roboflow.com/" + MODEL_ENDPOINT + "?api_key=" + API_KEY
                 + "&name=YOUR_IMAGE.jpg";
 
         // Http Request

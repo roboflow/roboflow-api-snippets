@@ -18,12 +18,12 @@ img_str = img_str.decode("ascii")
 api_key = ""
 
 # Model Endpoint
-model_endpoint = "xx-your-model--1"
+model_endpoint = "dataset/v"
 
 # Construct the URL
 upload_url = "".join([
-    "https://infer.roboflow.com/" + model_endpoint,
-    "?access_token=" + api_key,
+    "https://detect.roboflow.com/" + model_endpoint,
+    "?api_key=" + api_key,
     "&name=YOUR_IMAGE.jpg"
 ])
 

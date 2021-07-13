@@ -11,10 +11,10 @@ public class InferenceHosted {
     public static void main(String[] args) {
         String imageURL = "https://i.imgur.com/PEEvqPN.png"; // Replace Image URL
         String API_KEY = ""; // Your API Key
-        String MODEL_ENDPOINT = "xx-your-model--1"; // model endpoint
+        String MODEL_ENDPOINT = "dataset/v"; // model endpoint
 
         // Upload URL
-        String uploadURL = "https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY + "&image="
+        String uploadURL = "https://detect.roboflow.com/" + MODEL_ENDPOINT + "?api_key=" + API_KEY + "&image="
                 + URLEncoder.encode(imageURL, StandardCharsets.UTF_8);
 
         // Http Request
@@ -37,7 +37,7 @@ public class InferenceHosted {
             wr.close();
 
             // Get Response
-            InputStream stream  = new URL(uploadURL).openStream();
+            InputStream stream = new URL(uploadURL).openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
             String line;
             while ((line = reader.readLine()) != null) {

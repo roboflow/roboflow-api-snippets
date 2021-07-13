@@ -14,11 +14,11 @@ namespace InferenceLocal
             string encoded = Convert.ToBase64String(imageArray);
             byte[] data = Encoding.ASCII.GetBytes(encoded);
             string API_KEY = ""; // Your API Key
-            string MODEL_ENDPOINT = "xx-your-model--1"; // Set model endpoint
+            string MODEL_ENDPOINT = "dataset/v"; // Set model endpoint
 
             // Construct the URL
             string uploadURL =
-                    "https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY
+                    "https://detect.roboflow.com/" + MODEL_ENDPOINT + "?api_key=" + API_KEY
                 + "&name=YOUR_IMAGE.jpg";
 
             // Service Request Config

@@ -8,10 +8,10 @@ import java.net.URLEncoder
 fun main() {
     val imageURL = "https://i.imgur.com/PEEvqPN.png" // Replace Image URL
     val API_KEY = "" // Your API Key
-    val MODEL_ENDPOINT = "xx-your-model--1" // Set model endpoint
+    val MODEL_ENDPOINT = "dataset/v" // Set model endpoint
 
     // Upload URL
-    val uploadURL = "https://infer.roboflow.com/" + MODEL_ENDPOINT + "?access_token=" + API_KEY + "&image=" + URLEncoder.encode(imageURL, "utf-8");
+    val uploadURL = "https://detect.roboflow.com/" + MODEL_ENDPOINT + "?api_key=" + API_KEY + "&image=" + URLEncoder.encode(imageURL, "utf-8");
 
     // Http Request
     var connection: HttpURLConnection? = null
