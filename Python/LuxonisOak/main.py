@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
         # timing: for benchmarking purposes
         t = time.time()-t0
-        print("INFERENCE TIME IN MS ", 1/t)
+        print("FPS ", 1/t)
         print("PREDICTIONS ", [p.json() for p in predictions])
 
         # Uncomment the follow two lines to enable
