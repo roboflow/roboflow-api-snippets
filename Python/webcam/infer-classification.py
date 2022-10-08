@@ -1,12 +1,11 @@
 import json
 import cv2
 import base64
-import numpy as np
 import requests
 import time
 
-# Check to be sure your config file contains details for an Object Detection Model trained with Roboflow Train
-# https://docs.roboflow.com/train | https://docs.roboflow.com/inference/hosted-api
+# Check to be sure your config file contains details for a Classification Model trained with Roboflow Train
+# https://docs.roboflow.com/train | https://docs.roboflow.com/inference-classification/hosted-api
 # load config file:
 with open('roboflow_config.json') as f:
     config = json.load(f)
@@ -19,15 +18,14 @@ with open('roboflow_config.json') as f:
     BUFFER = config["BUFFER"]
 
 # Construct the Roboflow Infer URL
-# (if running locally replace https://detect.roboflow.com/ with eg http://127.0.0.1:9001/)
+# (if running locally replace https://classify.roboflow.com/ with eg http://127.0.0.1:9001/)
 upload_url = "".join([
-    "https://detect.roboflow.com/",
+    "https://classify.roboflow.com/",
     ROBOFLOW_MODEL,
     "?api_key=",
     ROBOFLOW_API_KEY,
     "&format=image",
-    "&stroke=5"
-])
+    ])
 
 # Get webcam interface via opencv-python
 video = cv2.VideoCapture(0)
@@ -36,6 +34,7 @@ video = cv2.VideoCapture(0)
 def infer():
     # Get the current image from the webcam
     ret, img = video.read()
+    image = img.copy()
 
     # Resize (while maintaining the aspect ratio) to improve speed and save bandwidth
     height, width, channels = img.shape
@@ -49,13 +48,23 @@ def infer():
     # Get prediction from Roboflow Infer API
     resp = requests.post(upload_url, data=img_str, headers={
         "Content-Type": "application/x-www-form-urlencoded"
-    }, stream=True).raw
-
-    # Parse result image
-    image = np.asarray(bytearray(resp.read()), dtype="uint8")
-    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    }, stream=True)
+    # Convert Response to JSON
+    preds = resp.json()
+    
+    # Add predictions (class label and confidence score) to image
+    (text_width, text_height), _ = cv2.getTextSize(
+        f"{preds['top']} conf: {preds['confidence']}",
+        fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8, thickness=2)
+    
+    text_location = (5, text_height)
+    
+    cv2.putText(image, f"{preds['top']} | conf: {preds['confidence']}",
+                text_location, fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8,
+                color=(255,255,255), thickness=2)   
 
     return image
+
 
 # Main loop; infers sequentially until you press "q"
 while 1:
