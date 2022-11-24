@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.1.0)
-    cgi (0.2.1)
+    cgi (0.3.1)
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -17,7 +17,7 @@ PLATFORMS
 
 DEPENDENCIES
   base64 (~> 0.1.0)
-  cgi (~> 0.2.1)
+  cgi (~> 0.3.1)
   httparty (~> 0.18.1)
 
 BUNDLED WITH
