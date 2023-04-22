@@ -2,4 +2,4 @@ source "https://rubygems.org"
 
 gem "httparty", "~> 0.18.1"
 gem "base64", "~> 0.1.0"
-gem "cgi", "~> 0.2.1"
+gem "cgi", "~> 0.2.2"
