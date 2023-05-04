@@ -67,7 +67,7 @@ const uploadLocalBySplit = (
 uploadLocalBySplit({
     project_name: 'pull_request_test',
     upload_dir: '../uploads',
-    api_key: 'KGyYEqDTfFiudxsrxO38'
+    api_key: 'PRIVATE_API_KEY'
 })
 
 /*
@@ -76,7 +76,7 @@ Example usage:
 uploadLocalBySplit({
     project_name: 'pull_request_test',
     upload_dir: 'uploads',
-    api_key: '12345678'
+    api_key: 'PRIVATE_API_KEY'
 })
 
 Or optionally provide your own split values:
@@ -86,6 +86,6 @@ uploadLocalBySplit({
     upload_dir: 'uploads',
     train_split: 0.6,
     valid_split: 0.2
-    api_key: '12345678'
+    api_key: 'PRIVATE_API_KEY'
 })
 */
