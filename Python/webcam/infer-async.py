@@ -1,5 +1,14 @@
-# load config
 import json
+import asyncio
+import cv2
+import base64
+import numpy as np
+import httpx
+import time
+
+# Check to be sure your config file contains details for an Object Detection Model trained with Roboflow Train
+# https://docs.roboflow.com/train | https://docs.roboflow.com/inference/hosted-api
+# load config file:
 with open('roboflow_config.json') as f:
     config = json.load(f)
 
@@ -9,13 +18,6 @@ with open('roboflow_config.json') as f:
 
     FRAMERATE = config["FRAMERATE"]
     BUFFER = config["BUFFER"]
-
-import asyncio
-import cv2
-import base64
-import numpy as np
-import httpx
-import time
 
 # Construct the Roboflow Infer URL
 # (if running locally replace https://detect.roboflow.com/ with eg http://127.0.0.1:9001/)
